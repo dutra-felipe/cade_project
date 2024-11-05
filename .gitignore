@@ -1,0 +1,37 @@
+# Arquivos do sistema
+.DS_Store
+*.log
+*.pot
+*.pyc
+__pycache__/
+*.sqlite3
+*.db
+
+# Diretórios do ambiente virtual
+venv/
+env/
+ENV/
+.env
+.env.*
+
+# Diretórios de build
+build/
+dist/
+*.egg-info/
+
+# Arquivos de configuração local
+settings.py
+
+# Arquivos de migrações
+migrations/*.py
+migrations/__init__.py
+
+# Outros
+*.bak
+*.tmp
+*.swp
+
+# IDEs e editores
+.vscode/
+.idea/
+*.iml
