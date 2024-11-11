@@ -2,28 +2,38 @@ version: '3.8'
 
 services:
   db:
-    image: postgres:15  # Certifique-se de usar a versão do PostgreSQL que deseja
+    image: postgres:15
     environment:
-      POSTGRES_DB: CADE_DB  # Nome do banco de dados
-      POSTGRES_USER: usuario      # Usuário do banco
-      POSTGRES_PASSWORD: senha    # Senha do banco
+      POSTGRES_DB: CADE_DB
+      POSTGRES_USER: usuario
+      POSTGRES_PASSWORD: senha
     volumes:
       - postgres_data:/var/lib/postgresql/data
     ports:
-      - "5432:5432"  # Porta do PostgreSQL
+      - "5432:5432"
+    healthcheck:
+      test: ["CMD-SHELL", "pg_isready -U usuario -d CADE_DB"]
+      interval: 5s
+      timeout: 5s
+      retries: 5
 
   web:
     build: .
-    command: python manage.py runserver 0.0.0.0:8000
+    command: sh -c "python manage.py migrate && python manage.py runserver 0.0.0.0:8000"
     volumes:
       - .:/app
+      - ./static:/app/static  # Para arquivos estáticos
+      - ./media:/app/media    # Para uploads de mídia
     ports:
-      - "8000:8000"  # Porta do Django
+      - "8000:8000"
     depends_on:
-      - db  # Garantir que o Django espere o PostgreSQL iniciar
+      db:
+        condition: service_healthy
     environment:
-      - DEBUG=1  # Define o modo debug
+      - DEBUG=1
       - DATABASE_URL=postgres://usuario:senha@db:5432/CADE_DB
+      - SECRET_KEY=sua-chave-secreta-local
+      - DJANGO_SETTINGS_MODULE=app.settings
 
 volumes:
   postgres_data:
