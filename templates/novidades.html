@@ -1,0 +1,169 @@
+{% load static %}
+
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CADE - Conselho Administrativo de Defesa Econômica</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.1/font/bootstrap-icons.css">
+    <link rel="stylesheet" href="{% static 'css/styles.css' %}">
+    <link rel="stylesheet" href="{% static 'css/novidades.css' %}">
+</head>
+<body>
+    <!-- Header with Logo and Language Selector -->
+    <div class="container-fluid py-3">
+        <div class="row align-items-center">
+            <div class="col-md-6 logo-container">
+                <img src="../static/images/logo.jpg" alt="CADE Logo" class="img-fluid">
+            </div>
+            <div class="col-md-6 text-end">
+                <div class="position-relative">
+                    <div class="language-selector d-inline-flex align-items-center" id="langSelector">
+                        <i class="bi bi-globe me-2"></i>
+                        <span class="current-lang">Idiomas</span>
+                    </div>
+                    <div class="language-dropdown" id="langDropdown">
+                        <div class="language-option" data-lang="pt">
+                            <img src="../static/images/br-flag.png" alt="Português" class="flag-icon">
+                            <span>Português</span>
+                        </div>
+                        <div class="language-option" data-lang="en">
+                            <img src="../static/images/us-flag.png" alt="English" class="flag-icon">
+                            <span>English</span>
+                        </div>
+                        <div class="language-option" data-lang="es">
+                            <img src="../static/images/es-flag.png" alt="Español" class="flag-icon">
+                            <span>Español</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Navigation -->
+    <nav class="navbar navbar-expand-lg navbar-dark navbar-custom">
+        <div class="container">
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarNav">
+                <ul class="navbar-nav">
+                    <li class="nav-item">
+                        <a class="nav-link" href="{% url 'index' %}" data-translate="menu">Menu</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="{% url 'sobre' %}" data-translate="about">Sobre o CADE</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="{% url 'notas' %}" data-translate="press">Notas a Imprensa</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="{% url 'jurisprudencia' %}" data-translate="jurisprudence">Jurisprudência</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="{% url 'eventos' %}" data-translate="events">Eventos</a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Main Content -->
+    <div class="container my-5">
+        <h1 class="section-title" data-translate="news_title">Novidades do CADE</h1>
+
+        <!-- Filtros -->
+        <div class="mb-4">
+            <div class="d-flex flex-wrap">
+                <button class="btn filter-button active" data-translate="filter_all">Todos</button>
+                <button class="btn filter-button" data-translate="filter_decisions">Decisões</button>
+                <button class="btn filter-button" data-translate="filter_concentration">Atos de Concentração</button>
+                <button class="btn filter-button" data-translate="filter_conduct">Condutas Anticompetitivas</button>
+                <button class="btn filter-button" data-translate="filter_international">Internacional</button>
+            </div>
+        </div>
+
+        <!-- Lista de Novidades -->
+        <div class="row">
+            <!-- Notícia 1 -->
+            <div class="col-md-6">
+                <div class="card news-card">
+                    <div class="card-body">
+                        <span class="news-date"><i class="bi bi-calendar3 me-2"></i>07 Nov 2024</span>
+                        <span class="news-tag ms-3" data-translate="tag_decisions">Decisões</span>
+                        <h5 class="card-title mt-3" data-translate="news1_title">CADE aprova sem restrições fusão entre empresas do setor tecnológico</h5>
+                        <p class="card-text" data-translate="news1_text">O Tribunal do CADE aprovou, por unanimidade, a operação de fusão entre duas grandes empresas do setor de tecnologia, considerando que não haveria prejuízos à concorrência...</p>
+                        <a href="#" class="btn btn-outline-primary" data-translate="read_more">Ler mais</a>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Notícia 2 -->
+            <div class="col-md-6">
+                <div class="card news-card">
+                    <div class="card-body">
+                        <span class="news-date"><i class="bi bi-calendar3 me-2"></i>06 Nov 2024</span>
+                        <span class="news-tag ms-3" data-translate="tag_international">Internacional</span>
+                        <h5 class="card-title mt-3" data-translate="news2_title">CADE participa de encontro internacional sobre práticas anticompetitivas</h5>
+                        <p class="card-text" data-translate="news2_text">Representantes do CADE participaram de importante encontro internacional para discutir práticas anticompetitivas no mercado digital e novas tecnologias...</p>
+                        <a href="#" class="btn btn-outline-primary" data-translate="read_more">Ler mais</a>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Notícia 3 -->
+            <div class="col-md-6">
+                <div class="card news-card">
+                    <div class="card-body">
+                        <span class="news-date"><i class="bi bi-calendar3 me-2"></i>05 Nov 2024</span>
+                        <span class="news-tag ms-3" data-translate="tag_conduct">Condutas Anticompetitivas</span>
+                        <h5 class="card-title mt-3" data-translate="news3_title">CADE instaura processo administrativo para investigar possível cartel</h5>
+                        <p class="card-text" data-translate="news3_text">A Superintendência-Geral do CADE instaurou processo administrativo para investigar supostas práticas anticompetitivas no mercado de produtos farmacêuticos...</p>
+                        <a href="#" class="btn btn-outline-primary" data-translate="read_more">Ler mais</a>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Notícia 4 -->
+            <div class="col-md-6">
+                <div class="card news-card">
+                    <div class="card-body">
+                        <span class="news-date"><i class="bi bi-calendar3 me-2"></i>04 Nov 2024</span>
+                        <span class="news-tag ms-3" data-translate="tag_concentration">Atos de Concentração</span>
+                        <h5 class="card-title mt-3" data-translate="news4_title">Novo guia de análise de atos de concentração é publicado</h5>
+                        <p class="card-text" data-translate="news4_text">O CADE publicou hoje seu novo guia de análise de atos de concentração, documento que traz orientações atualizadas sobre a análise de fusões e aquisições...</p>
+                        <a href="#" class="btn btn-outline-primary" data-translate="read_more">Ler mais</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Paginação -->
+        <nav class="mt-4">
+            <ul class="pagination justify-content-center">
+                <li class="page-item disabled">
+                    <a class="page-link" href="#" tabindex="-1" data-translate="previous">Anterior</a>
+                </li>
+                <li class="page-item active"><a class="page-link" href="#">1</a></li>
+                <li class="page-item"><a class="page-link" href="#">2</a></li>
+                <li class="page-item"><a class="page-link" href="#">3</a></li>
+                <li class="page-item">
+                    <a class="page-link" href="#" data-translate="next">Próxima</a>
+                </li>
+            </ul>
+        </nav>
+    </div>
+
+    <!-- Floating Bot Button -->
+    <a href="{% url 'chatbot_page' %}" class="floating-bot" target="_blank" rel="noopener noreferrer">
+        <i class="bi bi-robot"></i>
+    </a>
+
+    <!-- Scripts -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="{% static 'js/novidades.js' %}"></script> 
+</body>
+</html>

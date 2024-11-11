@@ -1,0 +1,33 @@
+.hero-section {
+    background-color: #f8f9fa;
+    padding: 60px 0;
+    margin-bottom: 40px;
+}
+.card-custom {
+    border: none;
+    box-shadow: 0 2px 15px rgba(0,0,0,0.1);
+    transition: transform 0.3s;
+    margin-bottom: 30px;
+}
+.card-custom:hover {
+    transform: translateY(-5px);
+}
+.section-title {
+    color: #004a7c;
+    margin-bottom: 30px;
+    position: relative;
+    padding-bottom: 15px;
+}
+.section-title:after {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 50px;
+    height: 3px;
+    background-color: #004a7c;
+}
+
+.text {
+    text-align: justify;
+}

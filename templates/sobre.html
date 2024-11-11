@@ -9,6 +9,7 @@
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.1/font/bootstrap-icons.css">
     <link rel="stylesheet" href="{% static 'css/styles.css' %}">
+    <link rel="stylesheet" href="{% static 'css/sobre.css' %}">
 </head>
 <body>
     <!-- Header with Logo and Language Selector -->
@@ -70,24 +71,113 @@
         </div>
     </nav>
 
-    <!-- Search Section -->
-    <div class="search-container">
+    <div class="hero-section">
         <div class="container">
-            <div class="search-box">
-                <i class="bi bi-search search-icon"></i>
-                <input type="text" class="search-input" placeholder="Pesquisar..." data-translate="search-placeholder">
-                <button class="close-button">×</button>
+            <div class="row">
+                <div class="col-md-8 offset-md-2 text-center">
+                    <h1 class="mb-4" data-translate="name">Conselho Administrativo de Defesa Econômica</h1>
+                    <p class="lead" data-translate="jargao">Promovendo a livre concorrência no mercado brasileiro</p>
+                </div>
             </div>
         </div>
     </div>
 
+    <!-- Main Content -->
+    <div class="container">
+        <!-- Sobre o CADE -->
+        <section class="mb-5">
+            <h2 class="section-title" data-translate="definicao">O que é o CADE?</h2>
+            <div class="row">
+                <div class="col-md-8">
+                    <p class="text" data-translate="sobre1">O Conselho Administrativo de Defesa Econômica (CADE) é uma autarquia federal brasileira, vinculada ao Ministério da Justiça, que tem como missão zelar pela livre concorrência no mercado, sendo a entidade responsável por investigar e decidir questões relativas à ordem econômica.</p>
+                    <p class="text" data-translate="sobre2">Criado em 1962 e reestruturado em 2012 pela Lei 12.529/2011, o CADE tem papel fundamental na prevenção e repressão às infrações contra a ordem econômica, orientando-se pelos ditames constitucionais de liberdade de iniciativa, livre concorrência, função social da propriedade, defesa dos consumidores e repressão ao abuso do poder econômico.</p>
+                    <p class="text" data-translate="sobre3">Com reconhecimento internacional por sua atuação técnica e independente, o CADE é referência na análise de atos de concentração econômica e no combate a condutas anticompetitivas. A autarquia possui um corpo técnico altamente qualificado e utiliza metodologias avançadas de análise econômica e jurídica para avaliar o impacto de operações empresariais e investigar práticas que possam prejudicar a concorrência no mercado brasileiro, contribuindo assim para o desenvolvimento econômico sustentável do país.</p>
+                </div>
+                <div class="col-md-4">
+                    <img src="../static/images/cade.jpeg" alt="Sede do CADE" class="img-fluid rounded">
+                </div>
+            </div>
+        </section>
+
+        <!-- Principais Atribuições -->
+        <section class="mb-5">
+            <h2 class="section-title" data-translate="atribuitions">Principais Atribuições</h2>
+            <div class="row">
+                <div class="col-md-4">
+                    <div class="card card-custom">
+                        <div class="card-body">
+                            <h5 class="card-title">
+                                <i class="bi bi-shield-check me-2"></i>
+                                <span data-translate="atrib1_title">Preventivo</span>
+                            </h5>
+                            <p class="card-text" data-translate="atrib1">Análise de fusões, aquisições e outras operações entre empresas que possam afetar a concorrência.</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-4">
+                    <div class="card card-custom">
+                        <div class="card-body">
+                            <h5 class="card-title">
+                                <i class="bi bi-search me-2"></i>
+                                <span data-translate="atrib2_title">Repressivo</span>
+                            </h5>
+                            <p class="card-text" data-translate="atrib2">Investigação e punição de condutas anticompetitivas, como cartéis e práticas abusivas.</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-4">
+                    <div class="card card-custom">
+                        <div class="card-body">
+                            <h5 class="card-title">
+                                <i class="bi bi-book me-2"></i>
+                                <span data-translate="atrib3_title">Educativo</span>
+                            </h5>
+                            <p class="card-text" data-translate="atrib3">Promoção da cultura da livre concorrência através de palestras, publicações e eventos.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Estrutura -->
+        <section class="mb-5">
+            <h2 class="section-title" data-translate="estructure">Estrutura Organizacional</h2>
+            <div class="row">
+                <div class="col-md-6">
+                    <h5>
+                        <i class="bi bi-diagram-3 me-2"></i>
+                        <span data-translate="tribunal_title">Tribunal Administrativo</span>
+                    </h5>
+                    <p data-translate="tribunal_desc">Órgão judicante responsável por julgar processos administrativos.</p>
+                    <h5>
+                        <i class="bi bi-building me-2"></i>
+                        <span data-translate="super_title">Superintendência-Geral</span>
+                    </h5>
+                    <p data-translate="super_desc">Responsável por investigar e instruir processos administrativos, além de emitir pareceres.</p>
+                </div>
+                <div class="col-md-6">
+                    <h5>
+                        <i class="bi bi-briefcase me-2"></i>
+                        <span data-translate="dep_title">Departamento de Estudos Econômicos</span>
+                    </h5>
+                    <p data-translate="dep_desc">Elabora estudos e pareceres econômicos para subsidiar as decisões do Tribunal.</p>
+                    <h5>
+                        <i class="bi bi-people me-2"></i>
+                        <span data-translate="proc_title">Procuradoria Federal Especializada</span>
+                    </h5>
+                    <p data-translate="proc_desc">Presta consultoria e assessoramento jurídico ao CADE.</p>
+                </div>
+            </div>
+        </section>
+    </div>
+
     <!-- Floating Bot Button -->
-    <button class="floating-bot">
+    <a href="{% url 'chatbot_page' %}" class="floating-bot" target="_blank" rel="noopener noreferrer">
         <i class="bi bi-robot"></i>
-    </button>
+    </a>
 
     <!-- Scripts -->
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
-    <script src="{% static 'js/script.js' %}"></script>
+    <script src="{% static 'js/sobre.js' %}"></script>
 </body>
 </html>
