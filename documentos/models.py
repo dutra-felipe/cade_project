@@ -1,17 +1,18 @@
 from django.db import models
 
+
 class Documento(models.Model):
     TIPO_DOCUMENTO_CHOICES = [
         ('acordao', 'Acórdão'),
         ('decisao', 'Decisão'),
         ('despacho', 'Despacho'),
     ]
-    
+
     TIPO_PROCESSO_CHOICES = [
         ('concentracao', 'Ato de Concentração'),
         ('administrativo', 'Processo Administrativo'),
     ]
-    
+
     SETOR_CHOICES = [
         ('energia', 'Energia'),
         ('telecom', 'Telecomunicações'),

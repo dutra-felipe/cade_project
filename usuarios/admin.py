@@ -2,12 +2,14 @@ from django.contrib import admin
 from django.utils import timezone
 from .models import Contato, Newsletter
 
+
 @admin.register(Contato)
 class ContatoAdmin(admin.ModelAdmin):
     list_display = ('nome', 'sobrenome', 'email', 'tipo_requisicao', 'inscrito_newsletter', 'data_envio')
     list_filter = ('tipo_requisicao', 'inscrito_newsletter', 'data_envio')
     search_fields = ('nome', 'sobrenome', 'email', 'mensagem')
     readonly_fields = ('data_envio',)
+
 
 @admin.register(Newsletter)
 class NewsletterAdmin(admin.ModelAdmin):
@@ -27,5 +29,5 @@ class NewsletterAdmin(admin.ModelAdmin):
                 self.message_user(request, f'Newsletter "{newsletter.titulo}" enviada com sucesso!')
             else:
                 self.message_user(request, f'Newsletter "{newsletter.titulo}" já foi enviada anteriormente.', level='WARNING')
-    
+
     enviar_newsletter.short_description = "Enviar newsletters selecionadas"

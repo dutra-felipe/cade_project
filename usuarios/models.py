@@ -4,6 +4,7 @@ from django.template.loader import render_to_string
 from django.utils.html import strip_tags
 from django.conf import settings
 
+
 class Contato(models.Model):
     TIPO_REQUISICAO_CHOICES = [
         ('contato', 'Contatar CADE'),
@@ -34,7 +35,7 @@ class Contato(models.Model):
     def save(self, *args, **kwargs):
         # Verifica se é um novo registro
         is_new = self.pk is None
-        
+
         # Define se deve receber newsletter baseado no tipo de requisição
         if self.tipo_requisicao in ['newsletter', 'ambos']:
             self.inscrito_newsletter = True
@@ -47,14 +48,14 @@ class Contato(models.Model):
 
     def enviar_email_boasvindas(self):
         subject = 'Bem-vindo à Newsletter do CADE'
-        
+
         html_message = render_to_string('newsletter.html', {
             'nome': self.nome,
             'email': self.email
         })
-        
+
         plain_message = strip_tags(html_message)
-        
+
         send_mail(
             subject,
             plain_message,
@@ -63,6 +64,7 @@ class Contato(models.Model):
             html_message=html_message,
             fail_silently=False,
         )
+
 
 class Newsletter(models.Model):
     titulo = models.CharField(max_length=200)
@@ -76,7 +78,7 @@ class Newsletter(models.Model):
 
     def enviar_newsletter(self):
         inscritos = Contato.objects.filter(inscrito_newsletter=True)
-        
+
         for inscrito in inscritos:
             html_message = render_to_string('newsletter.html', {
                 'nome': inscrito.nome,
@@ -84,9 +86,9 @@ class Newsletter(models.Model):
                 'conteudo': self.conteudo,
                 'email': inscrito.email
             })
-            
+
             plain_message = strip_tags(html_message)
-            
+
             send_mail(
                 f'Newsletter CADE - {self.titulo}',
                 plain_message,

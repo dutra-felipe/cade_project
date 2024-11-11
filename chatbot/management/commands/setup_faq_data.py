@@ -2,6 +2,7 @@
 from django.core.management.base import BaseCommand
 from chatbot.models import FAQCategory, FAQ, SearchKeyword
 
+
 class Command(BaseCommand):
     help = 'Popula o banco de dados com FAQs iniciais e palavras-chave'
 
@@ -10,7 +11,7 @@ class Command(BaseCommand):
         cat_geral, _ = FAQCategory.objects.get_or_create(name='Geral')
         cat_pesquisa, _ = FAQCategory.objects.get_or_create(name='Pesquisa')
         cat_processos, _ = FAQCategory.objects.get_or_create(name='Processos')
-        
+
         # FAQs em Português
         faqs_pt = [
             # Categoria Geral
@@ -35,7 +36,7 @@ class Command(BaseCommand):
                 'is_predefined': True,
                 'order': 3
             },
-            
+
             # Categoria Pesquisa
             {
                 'question': 'Como pesquisar processos?',
@@ -58,7 +59,7 @@ class Command(BaseCommand):
                 'is_predefined': True,
                 'order': 6
             },
-            
+
             # Categoria Processos
             {
                 'question': 'O que é um Ato de Concentração?',
@@ -128,7 +129,7 @@ class Command(BaseCommand):
                 'is_predefined': True,
                 'order': 3
             },
-            
+
             # Search Category
             {
                 'question': 'How to search for cases?',
@@ -151,7 +152,7 @@ class Command(BaseCommand):
                 'is_predefined': True,
                 'order': 6
             },
-            
+
             # Processes Category
             {
                 'question': 'What is a Merger Review?',
@@ -221,7 +222,7 @@ class Command(BaseCommand):
                 'is_predefined': True,
                 'order': 3
             },
-            
+
             # Categoría de Búsqueda
             {
                 'question': '¿Cómo buscar procesos?',
@@ -244,7 +245,7 @@ class Command(BaseCommand):
                 'is_predefined': True,
                 'order': 6
             },
-            
+
             # Categoría de Procesos
             {
                 'question': '¿Qué es un Acto de Concentración?',
@@ -300,7 +301,7 @@ class Command(BaseCommand):
                 order=faq_data.get('order', 0)
             )
 
-       # Palavras-chave para busca
+        # Palavras-chave para busca
         keywords_data = {
             'pt': [
                 ('cade', 'cade'),

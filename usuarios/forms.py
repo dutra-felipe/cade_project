@@ -1,6 +1,7 @@
 from django import forms
 from .models import Contato, Newsletter
 
+
 class ContatoForm(forms.ModelForm):
     class Meta:
         model = Contato
@@ -26,6 +27,7 @@ class ContatoForm(forms.ModelForm):
                     'class': 'form-control',
                     'placeholder': self.fields[field].label
                 })
+
 
 class NewsletterForm(forms.ModelForm):
     class Meta:

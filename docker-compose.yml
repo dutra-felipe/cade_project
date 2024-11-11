@@ -1,0 +1,29 @@
+version: '3.8'
+
+services:
+  db:
+    image: postgres:15  # Certifique-se de usar a versão do PostgreSQL que deseja
+    environment:
+      POSTGRES_DB: CADE_DB  # Nome do banco de dados
+      POSTGRES_USER: usuario      # Usuário do banco
+      POSTGRES_PASSWORD: senha    # Senha do banco
+    volumes:
+      - postgres_data:/var/lib/postgresql/data
+    ports:
+      - "5432:5432"  # Porta do PostgreSQL
+
+  web:
+    build: .
+    command: python manage.py runserver 0.0.0.0:8000
+    volumes:
+      - .:/app
+    ports:
+      - "8000:8000"  # Porta do Django
+    depends_on:
+      - db  # Garantir que o Django espere o PostgreSQL iniciar
+    environment:
+      - DEBUG=1  # Define o modo debug
+      - DATABASE_URL=postgres://usuario:senha@db:5432/CADE_DB
+
+volumes:
+  postgres_data:

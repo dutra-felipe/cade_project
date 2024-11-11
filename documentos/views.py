@@ -1,6 +1,6 @@
 from django.shortcuts import render
-from django.db.models import Q
 from .models import Documento
+
 
 def busca_documentos(request):
     query = request.GET.get('q', '')
@@ -14,16 +14,16 @@ def busca_documentos(request):
     # Aplicar filtros
     if query:
         documentos = documentos.filter(titulo__icontains=query)
-    
+
     if tipo_documento:
         documentos = documentos.filter(tipo_documento__in=tipo_documento)
-    
+
     if tipo_processo:
         documentos = documentos.filter(tipo_processo__in=tipo_processo)
-    
+
     if setor:
         documentos = documentos.filter(setor__in=setor)
-    
+
     if anos:
         documentos = documentos.filter(ano__in=anos)
 
@@ -43,5 +43,5 @@ def busca_documentos(request):
         'documento': Documento  # Adicionando o modelo ao context
 
     }
-    
+
     return render(request, 'jurisprudencia.html', context)

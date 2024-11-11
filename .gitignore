@@ -30,6 +30,7 @@ migrations/__init__.py
 *.bak
 *.tmp
 *.swp
+.flake8
 
 # IDEs e editores
 .vscode/

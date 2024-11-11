@@ -4,10 +4,11 @@ from django.utils.translation import gettext_lazy as _
 
 class FAQCategory(models.Model):
     name = models.CharField(max_length=100)
-    
+
     class Meta:
         verbose_name = _('FAQ Category')
         verbose_name_plural = _('FAQ Categories')
+
 
 class FAQ(models.Model):
     category = models.ForeignKey('FAQCategory', on_delete=models.CASCADE)
@@ -20,7 +21,7 @@ class FAQ(models.Model):
     ])
     is_predefined = models.BooleanField(default=False)  # Novo campo
     order = models.IntegerField(default=0)  # Para controlar a ordem de exibição
-    
+
     class Meta:
         verbose_name = _('FAQ')
         verbose_name_plural = _('FAQs')
@@ -29,14 +30,16 @@ class FAQ(models.Model):
     def __str__(self):
         return self.question
 
+
 class SearchKeyword(models.Model):
     keyword = models.CharField(max_length=100)
     normalized_term = models.CharField(max_length=100)
     language = models.CharField(max_length=2)
-    
+
     class Meta:
         verbose_name = _('Search Keyword')
         verbose_name_plural = _('Search Keywords')
+
 
 class ChatMessage(models.Model):
     user_message = models.TextField()
