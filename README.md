@@ -19,7 +19,6 @@ Sistema web desenvolvido para o Conselho Administrativo de Defesa Econômica (CA
 - Python 3.11
 - Django 5.1.2
 - PostgreSQL
-- NLTK para processamento de linguagem natural
 
 ### Frontend
 - HTML5
@@ -30,8 +29,6 @@ Sistema web desenvolvido para o Conselho Administrativo de Defesa Econômica (CA
 ### Infraestrutura
 - Docker
 - Docker Compose
-- Gunicorn
-- WhiteNoise para arquivos estáticos
 
 ## 📦 Instalação e Uso
 
